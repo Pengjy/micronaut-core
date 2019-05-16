@@ -13,17 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.micronaut.inject.annotation;
+
+package io.micronaut.inject.beans.visitor;
+
+import javax.annotation.Nonnull;
 
 /**
+ * Handle mapped super class.
+ *
  * @author graemerocher
- * @since 1.0
+ * @since 1.1.2
  */
-public @interface Nested {
-
-    int num() default 10;
-
-    String value() default "";
-
-    boolean bool() default false;
+public class MappedSuperClassIntrospectionMapper extends EntityIntrospectedAnnotationMapper {
+    @Nonnull
+    @Override
+    public String getName() {
+        return "javax.persistence.MappedSuperclass";
+    }
 }
